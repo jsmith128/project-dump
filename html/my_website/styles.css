@@ -1,0 +1,56 @@
+body {
+    background-color: lightblue;
+    color: rgb(39, 131, 206);
+    font-family: 'Courier New';
+  }
+  
+  h1 {
+    color: rgb(0, 199, 199);
+    text-align: center;
+    font-size: 420%;
+    font-family: Verdana;
+    margin-left: 650;
+    margin-right: 650;
+  }
+  
+  p {
+    color:rgb(39, 131, 206);
+    font-family: verdana;
+    font-size: 20px;
+    padding-left: 300px;
+  }
+
+  #link {
+    color:rgb(39, 131, 206);
+    font-size: 20px;
+    padding-left: 300px;
+  }
+
+  #linknsc {
+    color:rgb(39, 131, 206);
+  }
+
+  #link:hover, #linknsc:hover, #goback:hover #linkdp:hover {
+    color:rgb(69, 161, 236);
+  }
+
+  #img {
+    padding-left: 200px;
+  }
+
+  #goback {
+    color:rgb(39, 131, 206);
+    font-size: 20px;
+    padding-left: 300px;
+    padding-bottom: 70px;
+  }
+
+  #dpad {
+    padding-bottom: 70px
+  }
+
+  pre {
+    font-size: 20px;
+    padding-left: 300px;
+    color:rgb(37, 133, 211);
+  }

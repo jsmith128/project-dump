@@ -1,0 +1,162 @@
+@font-face { 
+    font-family: Coolvetica;
+    src: url("res/coolvetica.ttf");
+}
+
+@font-face {
+    font-family: Roboto-Black;
+    src: url("res/Roboto-Black.ttf");
+}
+
+body {
+    font-family: Roboto-Black;
+
+    background-image: url("res/myplastic.png");
+    background-repeat: repeat-y;
+    background-repeat: repeat-x;
+    background-repeat: repeat;
+
+    font-size: 20px;
+}
+
+h2 {
+    font-family: Roboto-Black;
+}
+
+
+
+/* Vertical Menu */
+.vertical-menu {
+    position: sticky;
+    top: 6px;
+    float: left;
+    /* width: 200px; */
+    width: 14%;
+}
+
+.vertical-menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc;
+}
+
+.vertical-menu a.active {
+    background-color: #1194f0; /*#04AA6D*/
+    color: white;
+}
+
+
+
+.header {
+    font-family: Coolvetica;
+    background-color: lightgray;
+    opacity: 0.9;
+    
+    
+    width: 70%;
+    margin: auto;
+    
+    margin-bottom: 1%;
+    margin-top: 1%; 
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    text-align: center;
+}
+
+.main {
+    background-color: #1194f0; /*slategray*/
+    opacity: 1;
+    
+    width: 50%;
+    margin: auto;
+    
+    padding: 2%;
+    
+    border-style: ridge;
+    border-width: 7px;
+}
+
+.main a:visited {
+    color: blue;
+}
+
+.main a:link {
+    color: blue;
+}
+
+
+.rss div {
+    background-color: rgb(88, 100, 112);
+    color: #307eb6; 
+
+    overflow-y: auto;
+    overflow-x:initial;
+    height: 75%;
+
+    padding: 2%;
+
+    border-style: inset;
+}
+
+.rss img {
+    max-width: 95%;
+}
+
+.rss-item a:visited {
+    color: #3e11f0;
+}
+
+.rss-title a:visited {
+    color: #3e11f0;
+}
+
+
+
+/* Style the RSS tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+  
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.2s;
+}
+  
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+  
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+  
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    /* padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none; */
+} 
+
+.tabcontent h3 {
+    border-left: 2px solid lightgray;
+    padding-left: 3px;
+}

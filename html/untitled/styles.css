@@ -1,0 +1,93 @@
+@font-face {
+    font-family: 'Flexi_IBM_VGA'; 
+    src:url('Flexi_IBM_VGA_True.ttf');
+}
+
+body {
+    margin:0;
+    padding:0;
+    
+    background-color: darkturquoise;
+    font-family: 'Flexi_IBM_VGA';
+    font-size: 22;
+}
+
+#header {
+    box-sizing: border-box; /*stops padding making elements bigger*/
+    position: static;
+    vertical-align: top;
+    width: 100%;
+    height: 50;
+
+    padding-left: 110px; /*RELATED 1 | ADD 10*/
+    padding-top: 0%;
+    padding-bottom: 0%;
+
+    background-color:darkolivegreen;
+
+    border-bottom-style:ridge;
+    border-bottom-width: 5;
+    /*border-color: white;*/
+
+    font-size: 50;
+}
+
+#sidebar {
+    box-sizing: border-box;
+    position: fixed;
+    width: 100px; /*RELATED 1*/
+    height: 100%;
+
+    background-color:aqua;
+
+    padding-left: 10px;
+}
+
+#mainbody {
+    box-sizing: border-box;
+    position: static;
+    display: block; /*used for putting this div in the center*/
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    min-height: 500px;
+    height: 500%;
+
+    padding-left: 0;
+    
+    background-color: cornflowerblue;
+}
+
+#mb_header {
+    background-color: cornflowerblue;
+    border-bottom-style:ridge;
+    border-bottom-width: 5;
+    border-bottom-color:skyblue;
+
+    padding-left: 50px;
+    font-size: 35px;
+
+    margin-bottom: 35px;
+}
+
+#mb_text {
+    padding-left: 35px;
+
+}
+
+a#hidelink:link {
+    text-decoration: none;
+}
+
+a#hidelink:visited {
+    color:black;
+    text-decoration: none;
+}
+a#hidelink:hover {
+    color:darkred;
+    text-decoration: underline;
+}
+a#hidelink:active {
+    color:red;
+    text-decoration: none;
+}

@@ -1,0 +1,101 @@
+{
+    'provider': { 
+        'name': 'Counter-Strike: Global Offensive', 
+        'appid': 730, 
+        'version': 13842, 
+        'steamid': '76561198174978698', 
+        'timestamp': 1662974268
+    }, 
+    'map': 
+    {
+        'mode': 'deathmatch', 
+        'name': 'de_dust2', 
+        'phase': 'live', 
+        'round': 0, 
+        'team_ct': 
+        {
+            'score': 0, 
+            'consecutive_round_losses': 0, 
+            'timeouts_remaining': 1, 
+            'matches_won_this_series': 0
+        }, 
+        'team_t': 
+        {'score': 1, 
+            'consecutive_round_losses': 0, 
+            'timeouts_remaining': 1, 
+            'matches_won_this_series': 0
+        }, 
+        'num_matches_to_win_series': 0, 
+        'current_spectators': 0, 
+        'souvenirs_total': 0
+    }, 
+    'round': 
+    {
+        'phase': 'live'
+    }, 
+    'player': 
+    {
+        'steamid': '76561198174978698', 
+        'name': 'Steveskeleton', 
+        'observer_slot': 6, 
+        'team': 'T', 
+        'activity': 'playing', 
+        'state': 
+        {
+            'health': 100, 
+            'armor': 100, 
+            'helmet': True, 
+            'flashed': 0, 
+            'smoked': 0, 
+            'burning': 0, 
+            'money': 0, 
+            'round_kills': 0, 
+            'round_killhs': 0, 
+            'equip_value': 1200
+        }, 
+        'weapons': 
+        {
+            'weapon_0': 
+            {
+                'name': 'weapon_knife_outdoor', 
+                'paintkit': 'aq_forced', 
+                'type': 'Knife', 
+                'state': 'holstered'
+            }, 
+            'weapon_1': 
+            {
+                'name': 'weapon_glock', 
+                'paintkit': 
+                'aq_glock_dark-fall', 
+                'type': 'Pistol', 
+                'ammo_clip': 20, 
+                'ammo_clip_max': 20, 
+                'ammo_reserve': 120, 
+                'state': 'active'
+            }
+        }, 
+        'match_stats': 
+        {
+            'kills': 0, 
+            'assists': 0, 
+            'deaths': 0, 
+            'mvps': 0, 
+            'score': 0
+        }
+    }, 
+    'previously':     
+    {
+        'map': 
+        {
+            'team_ct': 
+            {
+                'score': 0
+            }
+        }
+    }, 
+    'auth': 
+    {
+        'token': 'CCWJu64ZV3JHDT8hZc'
+    }
+}
+

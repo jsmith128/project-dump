@@ -1,0 +1,75 @@
+<!-- https://barter.vg/giveaways/rss/ -->
+
+<html>
+    <head>
+        <title>RSS Links</title>
+
+        <link href="styles.css" rel="stylesheet">
+        <link rel="shortcut icon" type="image/jpg" href="res/dashboard_black_24dp.svg">
+
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+    </head>
+
+    <body>
+        <div class="vertical-menu"></div>
+        <script src="vertical-bar.js"></script>
+
+        <div class="header">RSS FEED</div>
+        
+
+        
+
+
+
+        <div class="main">
+            <script src="rss-reader.js"></script>
+            <div>
+                <!-- <h2>RSS</h2> -->
+                
+
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'tab_sbox')">S&BOX</button>
+                    <button class="tablinks" onclick="openCity(event, 'tab_bartergiveaways')">Barter.vg Giveaways</button>
+                    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+                </div>
+
+                <div id="tab_sbox" class="tabcontent">
+                    <h3>S&BOX</h3>
+                    <div class="rss">
+                        <script 
+                            language="JavaScript" 
+                            src="https://feedroll.com/rssviewer/feed2js.php?src=https%3A%2F%2Fsbox.facepunch.com%2Frss%2Fnews&chan=y&date=y&utf=y&html=a"  
+                            charset="UTF-8" 
+                            type="text/javascript">
+                        </script>
+                    </div>
+                </div>
+
+                <div id="tab_bartergiveaways" class="tabcontent">
+                    <a href="https://barter.vg/giveaways/"> <h3>Barter.vg Giveaways</h3> </a>
+                    <div class="rss">
+                        <script 
+                            language="JavaScript" 
+                            src="https://feedroll.com/rssviewer/feed2js.php?src=https%3A%2F%2Fbarter.vg%2Fgiveaways%2Frss%2F&chan=y&num=75&desc=1&date=y&utf=y"  
+                            charset="UTF-8" 
+                            type="text/javascript">
+                        </script>
+                    </div>
+                </div>
+                
+                <div id="Tokyo" class="tabcontent">
+                    <h3>Tokyo</h3>
+                    <p>Tokyo is the capital of Japan.</p>
+                </div>
+                
+                <!-- <a   LINK TO RSS
+                    href="https://feedroll.com/rssviewer/feed2js.php?src=https%3A%2F%2Fsbox.facepunch.com%2Frss%2Fnews&chan=y&date=y&utf=y&html=y">
+                    View RSS feed
+                </a> -->
+                
+                <script src="rss-tabs.js"></script>
+            </div>
+        </div>
+    </body>
+</html>
