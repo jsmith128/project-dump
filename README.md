@@ -2,8 +2,6 @@ Big collection of most of my projects that don't deserve their own repo. Most co
 
 In the future I might put some of these projects into their own repositories because I'm actually proud of them.
 
-I believe the most interesting thing that is missing right now is a couple of garry's mod E2 chip files.
-
 
 notable projects
 ======
@@ -24,3 +22,5 @@ Drag-and-drop automatic png -> gif converter. Supports transparency!
 Simple """world generator""" that makes a text based hierarchical world, with a simple interface for "exploring" it.
 
 
+### [(gmod | lua/e2) simfphys-controller](/gmod/wiremod_e2_simfphys_controller)  
+E2 chip that steers a simfphys vehicle towards a given target.
