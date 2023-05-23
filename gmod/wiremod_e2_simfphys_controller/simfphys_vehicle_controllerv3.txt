@@ -1,0 +1,68 @@
+@name Simfphys Vehicle ControllerV3
+@inputs Object:entity Vehicle:entity Enable
+@outputs Steer Throttle Rev__Disabled__ Engine_Start Engine_Stop Handbrake
+@persist A T T2 D D2 Dir
+@trigger
+#####Made by Steveskeleton @October 23 2019#####
+
+###               Instructions               ###
+
+#>Wire Steer, Throttle, Engine_Start/Stop and Handbrake to the Simfphys vehicle
+#>Wire ANY entity output to the Object input on the E2
+#>Wire an Entity Marker output to the Vehicle input 
+#(!!!make sure to LINK it to the vehicle NOT wire or weld (right click)!!!)
+#>Connect a button to the Enable input
+#>Turn it on and make sure you do not enter the vehicle, if you do, just 
+#restart the car a few times
+#>Optionally, you can lock the vehicle so nobody can enter.
+
+#Thanks for taking the time to check this out!
+
+interval(10)
+Dir=0 Throttle=0 Handbrake=0 Steer=0
+
+if (Enable) {
+    Engine_Stop=0
+    Engine_Start=1
+    Dir=0.5
+    } 
+if (!Enable) {
+    Engine_Start=0
+    Engine_Stop=1
+    Dir=0
+    }
+
+A=bearing(Vehicle:pos(), Vehicle:angles(), Object:pos())
+
+if (A<=5&&A>=-5) {A=0}
+#if (A>=170|A<=-170) {A=0 Dir=-1} else {Dir=1} Reversing(WIP)
+if (A<=-1) {A=-1}
+if (A>=1) {A=1}
+Steer=A#-A*2 #Reverse steering
+
+if (Vehicle:pos():distance(Object:pos())<=400) {T=T+0.1} else {T=0}
+if (T>=30) {Handbrake=1}
+if (T>=50) {Handbrake=0 T=0}
+if (Vehicle:pos():distance(Object:pos())>=1000&&Dir==1) {Dir=1}
+if (Object:model()==noentity():model()) {Dir=0 Handbrake=1 Steer=0}
+
+if (Dir>0) {Throttle=Dir} else {Throttle=0}
+
+
+#[if (Dir>0) {Throttle=Dir}
+elseif (Dir<0) {Rev=Dir-Dir*2}
+else {Rev=0 Throttle=0}
+if (Rev>0&&Throttle>0) {Rev=0}]#
+
+#[if (Dir!=0) {T2=T2+0.2}
+if (T2>=60) { 
+    D2=D
+    D=Vehicle:pos():distance(Object:pos())
+        if (D>=D2-450&&D<=D2+450&&D!=D2) {Handbrake=1}
+        else {T2=0}
+    if (T2<=59) {Handbrake=0}
+    }
+if (T2>=100) {T2=0}]# #Not a very well thought-out feature
+
+#Incase you are wondering about the "V3" part of the title, it's because there are other versions that
+#don't work as well as this one

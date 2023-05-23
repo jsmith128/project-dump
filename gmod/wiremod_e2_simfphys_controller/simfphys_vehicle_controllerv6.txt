@@ -1,0 +1,105 @@
+@name Simfphys Vehicle ControllerV5.2
+@inputs Target:entity Vehicle:entity Enable
+@outputs Steer Throttle Rev Engine_On Engine_Off Handbrake RollCCW RollCW PitchDn PitchUp FL FR RL RR
+@persist A T D Dir Reversing
+@trigger
+
+#####Made by Steveskeleton @June 15 2022#####
+
+###             Instructions             ###
+
+# > Wire [Steer], [Throttle], [Rev](erse) [Engine_On], [Engine_Off] and [Handbrake] to the 
+#      respective Simfphys vehicle inputs.
+# > Then wire ANY entity data to the [Target] input on the E2.
+# > Also wire the "create entity" output from the Simfphys vechicle to [Vehicle] input.
+# > Finally, connect a toggle button to the [Enable] input.
+# > Turn it on and make sure you do not enter the vehicle. If you do, turn [Enable] on&off a couple times.
+#      Optionally, you can lock the vehicle so nobody can enter.
+
+# > For automatic flipping, place wire thrusters on each top corner of the vehicle. 
+#      Turn "Force Multiplier" and "Force Maximum" to max.
+#      Then connect each thruster to the corresponding output. I.e. [RL]->[RearLeft Thruster] and so on
+# > Alternatively you can wire a custom flipping device through either the aforementioned outputs, 
+#      or the [RollCW], [RollCCW], [PitchDn], and [PitchUp] outputs. Roll CW and CCW are clockwise and 
+#      counter-clockwise from the diver's POV. Look up a Pitch Yaw Roll diagram if you're confused.
+# > This feature is designed for turning the vehicle right-side up if it is flipped over, which happens a lot.
+
+
+# > This chip was designed with the GTA 5 Dukes in mind. While it may work for others it is not guaranteed.
+# > For best results, it's recommended to set "Powerdistribution" to -1, and turn up "MaxTraction" and "Efficiency"
+
+#Thanks for taking the time to check this out!
+
+
+###                                       ###
+
+#############################################
+
+Dir=0 #Eventually throttle is set to this, not sure what it means
+Throttle=0 
+Handbrake=0 
+Steer=0 #1 = right, -1 = left, 0 = straight
+
+MaxAngToRev = 90 #115
+MaxRoll = 25
+MaxPitch = 10
+B = 5 # Threshold in deg for how far off the car can be before it starts steering. Lower = more steering and more jitter
+# ^ also reversing might get stuck for a bit if this is too low. Reversing also needs this to be more than 0
+
+interval(10)
+
+
+if (Enable) {
+    Engine_Off=0
+    Engine_On=1
+    Dir=1
+    } 
+if (!Enable | Target:model()==noentity():model()) {
+    Engine_On=0
+    Engine_Off=1
+    Dir=0
+    }
+
+A=bearing(Vehicle:pos(), Vehicle:angles(), Target:pos())
+
+if (A<=B&&A>=-B) {A=0} #Round to straight if close. Where B variable comes into play
+if (A<=-MaxAngToRev | A>=MaxAngToRev) {
+    Reversing = 1
+}
+if (Reversing == 1) {
+    if (A == 0) { #Stop reversing if facing target
+        Reversing = 0
+    }
+    
+    A = -A #Swap sign on A, so reverse steering
+    Dir = -1
+    
+}
+A = clamp(A, -1, 1)
+Steer=A#-A*2 #Reverse steering
+
+if (Dir<0) {Rev = -Dir} else {Throttle=Dir Rev=0} #Basically Rev = -Dir if Dir is negative, or Throttle = Dir if not
+
+
+VAng = Vehicle:angles()
+
+RollCW, RollCCW, PitchDn, PitchUp = 0
+RL=0 RR=0 FL=0 FR=0
+if (VAng:roll() <= -MaxRoll) {RR=1, FR=1, RollCW = 1}
+if (VAng:roll() >= MaxRoll) {RL=1, FL=1, RollCCW = 1}
+if (VAng:pitch() <= -MaxPitch) {FL=1, FR=1, PitchDn = 1}
+if (VAng:pitch() >= MaxPitch) {RL=1, RR=1, PitchUp = 1}
+
+#RL=0 RR=0 FL=0 FR=0
+#if (RollCW == 1) {RR=1, FR=1, }
+#if (RollCCW ==1) {RL=1, FL=1, }
+#if (PitchDn ==1) {FL=1, FR=1, }
+#if (PitchUp ==1) {RL=1, RR=1, }
+
+
+
+
+
+
+
+
