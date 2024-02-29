@@ -21,7 +21,7 @@ except IndexError:
     input("press enter to continue...")
 
 # Get times to cut
-print("If something doesn't work, make sure the directory has no spaces, and ffmpeg.exe is here with the script.")
+print("\nIf something doesn't work, make sure the directory has no spaces, and ffmpeg.exe is here with the script.")
 print("You can change the output vido's suffix and file extension at the top of the script.")
 print("The output video will be placed in the directory of the input file.")
 print('\n\nCutting video: "'+ inFile+'"')
@@ -38,7 +38,7 @@ fileEXT     = path.splitext(inFile)[1]
 output= path.join(filePath, fileName+suffix+new_ext)
 
 # Make the command to run
-cmd = f'@"{scriptPath}/ffmpeg.exe" -i "{inFile}" -ss {start_time} -to {end_time} "{output}"'
+cmd = f'@"{scriptPath}/ffmpeg.exe" -ss {start_time} -to {end_time} -i "{inFile}" -c copy "{output}"'
 print("\n\n"+cmd+"\n\n")
 # Try running the command
 try:
@@ -46,4 +46,4 @@ try:
 except Exception as e:
     print(e)
 
-input("\nDone (delete the last line of this script to disable this confirmation)")
+#input("\nDone (delete the last line of this script to disable this confirmation)")
